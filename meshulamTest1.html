@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>test4</title>
+	<meta charset="utf-8"/>
+	<style>
+	</style>
+</head>
+<body>
+	<button onclick="openPaymentPg()">open payment pg</button>
+	<script src="./jquery_1.10.2.js"></script>
+	<script>
+		function openPaymentPg(){
+			$.ajax({url:"https://sandbox.meshulam.co.il/api/light/server/1.0/createPaymentProcess",
+					method:"post",
+					data:{formdata:{pageCode:"9360ae8b4112",userId:"75a72868bce91687",sum:"10",successUrl:"https://otorita.net/otorita_test/test3.asp",cancelUrl:"https://www.meshulam.biz",pageField:{fullName:"blabal blabla",phone:"03-22334455",email:"shayz@oo.co.il"}}}
+				})
+				.done(function(sData){
+					alert ("success = " + sData);
+				})
+				.fail(function(oErr,sErrStatus,sErrDescription){
+					alert("err11 =" + sErrDescription);
+				})
+				.always(function(){
+				});
+		}
+	</script>
+</body>
